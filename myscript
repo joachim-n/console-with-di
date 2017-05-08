@@ -1,0 +1,34 @@
+#!/usr/bin/env php
+<?php
+
+namespace Dorgflow;
+
+require_once __DIR__ . '/vendor/autoload.php';
+
+use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\Console\Application;
+use Symfony\Component\Console\Input\InputArgument;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Input\InputOption;
+use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\DependencyInjection\Reference;
+use Symfony\Component\DependencyInjection\Definition;
+
+// Build the service container.
+$container = new ContainerBuilder();
+
+$container
+  ->register('my_service', \Dorgflow\Service\MyService::class);
+
+// Do something with the service.
+$container->get('my_service')->doSomething();
+
+// Build the console application.
+$application = new Application();
+
+$application->add(new \Dorgflow\Command\MyCommand());
+
+$application->setDefaultCommand('mycommand');
+
+$application->run();
+
