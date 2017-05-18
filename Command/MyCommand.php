@@ -20,6 +20,7 @@ class MyCommand extends Command implements ContainerAwareInterface {
   }
 
   protected function execute(InputInterface $input, OutputInterface $output) {
+    // ?? There's no container here??
     dump($this->container);
 
     $output->writeln('The command works!');

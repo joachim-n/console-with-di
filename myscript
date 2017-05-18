@@ -24,6 +24,7 @@ $container
 $container->get('my_service')->doSomething();
 
 // Build the console application.
+// ?? How does the application get told about the console??
 $application = new Application();
 
 $application->add(new \Dorgflow\Command\MyCommand());
