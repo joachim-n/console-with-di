@@ -14,14 +14,8 @@ class MyCommand extends Command implements ContainerAwareInterface {
 
   protected function configure() {
     $this
-      // the name of the command (the part after "bin/console")
       ->setName('mycommand')
-
-      // the short description shown while running "php bin/console list"
       ->setDescription('test command.')
-
-      // the full command description shown when running the command with
-      // the "--help" option
       ->setHelp('This command is a test.');
   }
 
